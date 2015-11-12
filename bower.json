@@ -1,0 +1,22 @@
+{
+  "name": "thurs",
+  "version": "0.0.0",
+  "authors": [
+    "Mary Ellen Klein <maryellenklein@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "neat": "~1.7.2"
+  }
+}
