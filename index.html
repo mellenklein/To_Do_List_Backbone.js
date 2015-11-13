@@ -3,15 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title>To-Do List App</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <h1>A Good Day Starts With A List</h1>
+    <header>
+      <h1>A Good Day Starts With A List...</h1>
+    </header>
+    <div class="wrapper">
+      <main>
 
+      </main>
+    </div>
+
+  <script type="text/template" id="homePageTemplate">
+  </script>
+
+  <script type="text/template" id="formTemplate">
+    <input type="text" class="item" placeholder="What do you need to get done?"/>
+    <div class="details">
+      <label for="urgent">Urgent</label>
+      <input type="checkbox" name="urgent" class="urgent" id="urgent"/>
+      <label for="dueDate">Deadline</label>
+      <input type="date" class="dueDate" id="dueDate"/>
+    </div>
+  </script>
+
+  <script type="text/template" id="toDoTemplate">
+    <section class="circle fa fa-circle-thin"></section>
+    <section class="check fa fa-check-circle"></section>
+    <section class="itemDetails">
+      <p class="description"> <%= description %></p>
+      <p class="deadline"><i class="fa fa-calendar"></i><%= moment(deadline).startOf('day').fromNow() %></p>
+      <div class="urgent"><%= urgent.toString().replace("true", "•").replace("false", "") %></div>
+    </section>
+  </script>
+
+  <script type="text/template" id="toDoListTemplate">
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
   <script src="app.js"></script>
   </body>

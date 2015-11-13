@@ -1,0 +1,125 @@
+html {
+  box-sizing: border-box; }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit; }
+
+body {
+  font-family: 'Helvetica' sans-serif;
+  margin: 0; }
+
+header {
+  background: #93D189;
+  border-bottom: 2px solid #64B058; }
+
+header h1 {
+  display: block;
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+  color: white;
+  font-size: 2.4em;
+  font-family: 'Parisienne', cursive;
+  text-transform: lowercase; }
+
+.wrapper {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .wrapper:last-child {
+    margin-right: 0; }
+
+form {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin: 50px auto; }
+  form:last-child {
+    margin-right: 0; }
+  form .item {
+    font-size: 1.2em;
+    padding: 20px;
+    margin: 0 auto;
+    display: block;
+    width: 50%; }
+    form .item:focus {
+      outline-color: #93D189; }
+  form div.details {
+    margin: 15px auto;
+    text-align: center; }
+    form div.details label {
+      color: #64B058;
+      font-size: 1.3em; }
+    form div.details .urgent {
+      margin-right: 30px;
+      border-color: #93D189;
+      border-image: none;
+      border-radius: 100px; }
+      form div.details .urgent:focus {
+        outline-color: #93D189; }
+    form div.details .dueDate {
+      font-size: 1em;
+      font-family: inherit;
+      color: #A9A9A9; }
+      form div.details .dueDate:focus {
+        outline-color: #93D189; }
+
+section.list {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin: 0 auto; }
+  section.list:last-child {
+    margin-right: 0; }
+  section.list article.toDo {
+    font-size: 1em;
+    padding: 20px;
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+    border-bottom: 1px solid #A9A9A9; }
+    section.list article.toDo p {
+      margin: 0;
+      display: inline-block;
+      width: 70%;
+      font-size: 1.2em; }
+    section.list article.toDo .description {
+      font-size: 1.6em;
+      text-transform: capitalize;
+      float: left; }
+    section.list article.toDo .circle {
+      float: left;
+      font-size: 2.5em;
+      margin-right: 30px;
+      color: gray;
+      transition: color 0.5s ease; }
+      section.list article.toDo .circle:hover {
+        color: #64B058;
+        transition: color 0.5s ease; }
+    section.list article.toDo .check {
+      float: left;
+      font-size: 2.5em;
+      color: #64B058;
+      margin-right: 30px;
+      display: none; }
+    section.list article.toDo .deadline {
+      font-size: .9em;
+      color: #A9A9A9;
+      position: relative; }
+      section.list article.toDo .deadline i {
+        color: black;
+        padding-right: 5px; }
+    section.list article.toDo .urgent {
+      color: red;
+      float: right;
+      font-size: 2em;
+      margin-bottom: 30px; }
+      section.list article.toDo .urgent::after {
+        content: '';
+        display: block;
+        clear: both; }

@@ -1,3 +1,127 @@
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "variables";
 @import "../bower_components/neat/app/assets/stylesheets/neat";
+
+body {
+  font-family: 'Helvetica' sans-serif;
+  margin: 0;
+}
+header {
+  background: #93D189;
+  border-bottom: 2px solid #64B058;
+}
+header h1 {
+  display: block;
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+  color: white;
+  font-size: 2.4em;
+  font-family: 'Parisienne', cursive;
+  text-transform: lowercase;
+}
+.wrapper {
+  @include span-columns(12 of 12);
+}
+form {
+  @include span-columns(12 of 12);
+  margin: 50px auto;
+  .item {
+  font-size: 1.2em;
+  padding: 20px;
+  margin: 0 auto;
+  display: block;
+  width: 50%;
+  &:focus {
+    outline-color: #93D189;
+  }
+}
+  div.details{
+    margin: 15px auto;
+    text-align: center;
+    label {
+      color:  #64B058;
+      font-size: 1.3em;
+    }
+    .urgent {
+      margin-right: 30px;
+      border-color: #93D189;
+      border-image: none;
+      border-radius: 100px;
+      &:focus {
+        outline-color: #93D189;
+      }
+    }
+    .dueDate {
+      font-size: 1em;
+      font-family: inherit;
+      color: #A9A9A9;
+      &:focus {
+        outline-color: #93D189;
+      }
+    }
+  }
+}
+
+section.list {
+  @include span-columns(12 of 12);
+  margin: 0 auto;
+  article.toDo {
+    font-size: 1em;
+    padding: 20px;
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+    border-bottom: 1px solid #A9A9A9;
+    p {
+      margin: 0;
+      display: inline-block;
+      width: 70%;
+      font-size: 1.2em;
+    }
+    .description {
+      font-size: 1.6em;
+      text-transform: capitalize;
+      float: left;
+    }
+    .circle {
+      float: left;
+      font-size: 2.5em;
+      margin-right: 30px;
+      color: gray;
+      // display: none;
+      transition: color .5s ease;
+      &:hover{
+        color: #64B058;
+        transition: color .5s ease;
+      }
+    }
+    .check {
+      float: left;
+      font-size: 2.5em;
+      color: #64B058;
+      margin-right: 30px;
+      display: none;
+    }
+    .deadline {
+      font-size: .9em;
+      color: #A9A9A9;
+      position: relative;
+      i {
+        color: black;
+        padding-right: 5px;
+      }
+    }
+    .urgent {
+      color: red;
+      float: right;
+      font-size: 2em;
+      margin-bottom: 30px;
+      &::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+  }
+}
