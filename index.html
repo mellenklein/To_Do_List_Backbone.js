@@ -21,7 +21,7 @@
   </script>
 
   <script type="text/template" id="formTemplate">
-    <input type="text" class="item" placeholder="What do you need to get done?"/>
+    <input type="text" class="item" placeholder="Enter a task..." onfocus="this.placeholder = ''"/>
     <div class="details">
       <label for="urgent">Urgent</label>
       <input type="checkbox" name="urgent" class="urgent" id="urgent"/>
@@ -33,14 +33,24 @@
   <script type="text/template" id="toDoTemplate">
     <section class="circle fa fa-circle-thin"></section>
     <section class="check fa fa-check-circle"></section>
-    <section class="itemDetails">
+    <section class="itemDetails active">
       <p class="description"> <%= description %></p>
       <p class="deadline"><i class="fa fa-calendar"></i><%= moment(deadline).startOf('day').fromNow() %></p>
-      <div class="urgent"><%= urgent.toString().replace("true", "•").replace("false", "") %></div>
+      <!-- <div class="urgent"><%= urgent.toString().replace("true", "•").replace("false", "") %></div> -->
     </section>
+    <section class="urgentSwitch fa fa-circle-thin"></section>
+    <section class="urgentOn fa fa-circle"></section>
   </script>
 
   <script type="text/template" id="toDoListTemplate">
+    <div class="listView">
+      <nav>
+        <a>Items Left</a>
+        <a href="#all">All</a>
+        <a href="#active">Active</a>
+        <a href="#completed">Completed</a>
+      </nav>
+    </div>
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>

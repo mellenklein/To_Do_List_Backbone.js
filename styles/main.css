@@ -50,9 +50,13 @@ form {
       outline-color: #93D189; }
   form div.details {
     margin: 15px auto;
-    text-align: center; }
+    text-align: center;
+    width: 50%;
+    margin-top: 0;
+    padding: 5px 0;
+    background: #BBE4B4; }
     form div.details label {
-      color: #64B058;
+      color: white;
       font-size: 1.3em; }
     form div.details .urgent {
       margin-right: 30px;
@@ -67,6 +71,11 @@ form {
       color: #A9A9A9; }
       form div.details .dueDate:focus {
         outline-color: #93D189; }
+
+div.listView {
+  text-align: center;
+  width: 50%;
+  margin: 15px auto; }
 
 section.list {
   float: left;
@@ -117,9 +126,22 @@ section.list {
     section.list article.toDo .urgent {
       color: red;
       float: right;
-      font-size: 2em;
-      margin-bottom: 30px; }
+      font-size: 3.5em;
+      margin-bottom: 30px;
+      position: relative;
+      bottom: 40px; }
       section.list article.toDo .urgent::after {
         content: '';
         display: block;
         clear: both; }
+  section.list .urgentSwitch {
+    float: right;
+    position: relative;
+    bottom: 35px;
+    color: red; }
+  section.list .urgentOn {
+    float: right;
+    position: relative;
+    bottom: 35px;
+    color: red;
+    display: none; }

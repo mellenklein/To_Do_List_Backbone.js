@@ -36,6 +36,27 @@ var ToDoItem = Backbone.View.extend({
   tagName: 'article',
   className: 'toDo',
   template: _.template($('#toDoTemplate').html()),
+  events: {
+    'click .circle': 'markCompleted',
+    'click .check': 'markCompleted',
+    'click .urgentSwitch': 'markUrgent',
+    'click .urgentOn': 'markUrgent'
+  },
+  markCompleted: function(){
+    var circle = this.$('.circle');
+    var check = this.$('.check');
+    var item = this.$('.itemDetails');
+    circle.toggle();
+    check.toggle();
+    item.toggleClass('completed');
+    item.toggleClass('active');
+  },
+  markUrgent: function(){
+    var urgentSwitch = this.$('.urgentSwitch');
+    var urgentOn = this.$('.urgentOn');
+    urgentSwitch.toggle();
+    urgentSwitch.toggle();
+  },
   render: function(){
     var data = this.model.toJSON();
     this.$el.html(this.template(data));
@@ -89,7 +110,7 @@ var FormView = Backbone.View.extend({
     });
     toDo.save(); //save the todo item to the server
 
-    this.collection.add(toDo); //this will append the newly created item to the list.
+    this.collection.add(toDo, {at: [0]}); //this will append the newly created item to the list.
     this.$('.item').val('');
     $('.dueDate').val('');
     this.$('.urgent').prop('checked', false);
@@ -146,11 +167,3 @@ var Router = Backbone.Router.extend({
 
 var router = new Router();
 Backbone.history.start();
-
-// var list = new ToDoList();
-// list.render();
-// // $('main').append(form.el);
-
-// var form = new FormView();
-// form.render();
-// $('main').append(form.el);

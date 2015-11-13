@@ -39,8 +39,14 @@ form {
   div.details{
     margin: 15px auto;
     text-align: center;
+    width: 50%;
+    // border: 1px inset #BFBFBF;
+    // border-top: none;
+    margin-top: 0;
+    padding: 5px 0;
+    background: #BBE4B4;
     label {
-      color:  #64B058;
+      color:  white;
       font-size: 1.3em;
     }
     .urgent {
@@ -61,6 +67,11 @@ form {
       }
     }
   }
+}
+div.listView {
+  text-align: center;
+  width: 50%;
+  margin: 15px auto;
 }
 
 section.list {
@@ -115,8 +126,10 @@ section.list {
     .urgent {
       color: red;
       float: right;
-      font-size: 2em;
+      font-size: 3.5em;
       margin-bottom: 30px;
+      position: relative;
+      bottom: 40px;
       &::after {
         content: '';
         display: block;
@@ -124,4 +137,18 @@ section.list {
       }
     }
   }
+    .urgentSwitch {
+      float: right;
+      position: relative;
+      bottom: 35px;
+      color: red;
+      // display: none;
+    }
+    .urgentOn {
+      float: right;
+      position: relative;
+      bottom: 35px;
+      color: red;
+      display: none;
+    }
 }
