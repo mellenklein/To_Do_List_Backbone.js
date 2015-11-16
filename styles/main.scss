@@ -39,13 +39,15 @@ form {
   div.details{
     margin: 15px auto;
     text-align: center;
+    height: 38px;
     width: 50%;
     // border: 1px inset #BFBFBF;
     // border-top: none;
     margin-top: 0;
     padding: 5px 0;
     background: #BBE4B4;
-    label {
+    label,
+    label.dueDate {
       color:  white;
       font-size: 1.3em;
     }
@@ -124,7 +126,7 @@ section.list {
       }
     }
     .urgent {
-      color: red;
+      color: #CF6870;
       float: right;
       font-size: 3.5em;
       margin-bottom: 30px;
@@ -136,19 +138,41 @@ section.list {
         clear: both;
       }
     }
+    .completed p.description {
+      text-decoration: line-through;
+      color: #A9A9A9;
+    }
   }
-    .urgentSwitch {
+    .urgentOff {
       float: right;
       position: relative;
-      bottom: 35px;
-      color: red;
-      // display: none;
+      font-size: 18px;
+      bottom: 15px;
+      color: gray;
+      &:hover {
+        color: #CF6870;
+      }
     }
     .urgentOn {
       float: right;
       position: relative;
-      bottom: 35px;
-      color: red;
+      font-size: 18px;
+      bottom: 15px;
+      color: #CF6870;
       display: none;
+    }
+    .xBtn {
+      float: right;
+      position: relative;
+      font-size: 20px;
+      bottom: 45px;
+      left: 16px;
+      color: #A9A9A9;
+      opacity: 0.3;
+      transition: opacity .5s ease;
+      &:hover {
+        opacity: 1;
+        transition: opacity .5s ease;
+      }
     }
 }

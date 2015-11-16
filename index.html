@@ -5,6 +5,8 @@
     <title>To-Do List App</title>
     <link href='https://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="styles/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="styles/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
@@ -23,9 +25,9 @@
   <script type="text/template" id="formTemplate">
     <input type="text" class="item" placeholder="Enter a task..." onfocus="this.placeholder = ''"/>
     <div class="details">
-      <label for="urgent">Urgent</label>
+      <label for="urgent">Today:</label>
       <input type="checkbox" name="urgent" class="urgent" id="urgent"/>
-      <label for="dueDate">Deadline</label>
+      <label class="dueDate" for="dueDate">Future:</label>
       <input type="date" class="dueDate" id="dueDate"/>
     </div>
   </script>
@@ -35,11 +37,12 @@
     <section class="check fa fa-check-circle"></section>
     <section class="itemDetails active">
       <p class="description"> <%= description %></p>
-      <p class="deadline"><i class="fa fa-calendar"></i><%= moment(deadline).startOf('day').fromNow() %></p>
+      <p class="deadline"><i class="fa fa-calendar"></i><%= moment(deadline).startOf('day').fromNow().replace("Invalid date", "Today") %></p>
       <!-- <div class="urgent"><%= urgent.toString().replace("true", "•").replace("false", "") %></div> -->
     </section>
-    <section class="urgentSwitch fa fa-circle-thin"></section>
+    <section class="urgentOff fa fa-circle-thin"></section>
     <section class="urgentOn fa fa-circle"></section>
+    <section class="xBtn fa fa-times-circle"></section>
   </script>
 
   <script type="text/template" id="toDoListTemplate">

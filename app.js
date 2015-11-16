@@ -8,7 +8,8 @@ var Form = Backbone.Model.extend({
 });
 
 var ToDo = Backbone.Model.extend({
-  urlRoot: 'http://tiny-starburst.herokuapp.com/collections/todomel'
+  urlRoot: 'http://tiny-starburst.herokuapp.com/collections/todomel',
+  idAttribute: "_id"
 });
 
 var ToDos = Backbone.Collection.extend({
@@ -39,23 +40,33 @@ var ToDoItem = Backbone.View.extend({
   events: {
     'click .circle': 'markCompleted',
     'click .check': 'markCompleted',
-    'click .urgentSwitch': 'markUrgent',
-    'click .urgentOn': 'markUrgent'
+    'click .urgentOff': 'markUrgent',
+    'click .urgentOn': 'markUrgent',
+    'click .xBtn': 'removeItem',
   },
   markCompleted: function(){
     var circle = this.$('.circle');
     var check = this.$('.check');
     var item = this.$('.itemDetails');
+    console.log('you clicked the circle!')
     circle.toggle();
     check.toggle();
     item.toggleClass('completed');
     item.toggleClass('active');
   },
   markUrgent: function(){
-    var urgentSwitch = this.$('.urgentSwitch');
+    var urgentOff = this.$('.urgentOff');
     var urgentOn = this.$('.urgentOn');
-    urgentSwitch.toggle();
-    urgentSwitch.toggle();
+    console.log('you clicked the urgent circle!')
+    urgentOff.toggle();
+    urgentOn.toggle();
+  },
+  removeItem: function(){
+    var xBtn = this.$('.xBtn');
+    var item = this.$('.itemDetails');
+    console.log('you clicked the remove x!');
+    item.closest('.toDo').toggle('slide');
+    this.model.destroy();
   },
   render: function(){
     var data = this.model.toJSON();
@@ -90,7 +101,8 @@ var FormView = Backbone.View.extend({
   events: {
     'keypress .item': 'handleEnter', //when key is pressed while focus is in the .item box
     'keypress .dueDate': 'handleEnter',
-    'keypress .urgent': 'handleEnter'
+    'keypress .urgent': 'handleEnter',
+    'click .urgent': 'handleToday'
   },
   send: function(){
     var description = $('.item').val();
@@ -113,6 +125,7 @@ var FormView = Backbone.View.extend({
     this.collection.add(toDo, {at: [0]}); //this will append the newly created item to the list.
     this.$('.item').val('');
     $('.dueDate').val('');
+    $('.dueDate').show('');
     this.$('.urgent').prop('checked', false);
   },
 
@@ -121,6 +134,11 @@ var FormView = Backbone.View.extend({
       event.preventDefault();
       this.send();
     }
+  },
+  handleToday: function(){
+    var urgent = this.$('.urgent').is(':checked');
+    var today = this.
+      $('.dueDate').toggle();
   },
   render: function(){
     var formTemplate = $('#formTemplate').html();
@@ -143,7 +161,7 @@ var Router = Backbone.Router.extend({
     //setup
     var mainView = new HomeView();
     var toDos = new ToDos();
-    var toDoList = new ToDoList({
+    var toDoList = new ToDoList({ //instance of your collection
         collection: toDos
     });
     var form = new FormView({
