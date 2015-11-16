@@ -30,6 +30,14 @@
       <label for="dueDate">Future:</label>
       <input type="date" class="dueDate" id="dueDate"/>
     </div>
+    <!-- <div class="filters">
+      <nav>
+        <a class="itemsLeft">Items Left</a>
+        <a href="#all" class="showAll">All</a>
+        <a href="#active" class="showActive">Active</a>
+        <a href="#completed" class="showCompleted">Completed</a>
+      </nav>
+    </div> -->
   </script>
 
   <script type="text/template" id="toDoTemplate">
@@ -38,7 +46,7 @@
     <section class="itemDetails active">
       <p class="description"> <%= description %></p>
       <input type="text" class="editBox"/>
-      <p class="deadline"><i class="fa fa-calendar"></i><%= moment(deadline).startOf('day').fromNow() %></p>
+      <p class="deadline"><i class="fa fa-calendar"></i><%= moment(deadline).startOf('day').fromNow().replace("Invalid date", "Today") %></p>
       <!-- <div class="urgent"><%= urgent.toString().replace("true", "•").replace("false", "") %></div> -->
     </section>
     <section class="urgentOff fa fa-circle-thin"></section>
@@ -47,14 +55,7 @@
   </script>
 
   <script type="text/template" id="toDoListTemplate">
-    <div class="listView">
-      <nav>
-        <a>Items Left</a>
-        <a href="#all">All</a>
-        <a href="#active">Active</a>
-        <a href="#completed">Completed</a>
-      </nav>
-    </div>
+
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>

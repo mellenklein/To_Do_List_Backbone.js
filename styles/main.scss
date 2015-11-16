@@ -70,10 +70,19 @@ form {
     }
   }
 }
-div.listView {
+.filters {
   text-align: center;
   width: 50%;
-  margin: 15px auto;
+  margin: 40px auto 0;
+  a {
+    text-decoration: none;
+    color: gray;
+    padding: 0 20px;
+    &:hover {
+      border: 1px solid gray;
+      padding: 5px 20px;
+    }
+  }
 }
 
 section.list {
@@ -174,7 +183,7 @@ section.list {
       float: right;
       position: relative;
       font-size: 20px;
-      bottom: 45px;
+      bottom: 55px;
       left: 16px;
       color: #A9A9A9;
       opacity: 0.3;

@@ -124,7 +124,8 @@ var FormView = Backbone.View.extend({
     'keypress .item': 'handleEnter', //when key is pressed while focus is in the .item box
     'keypress .dueDate': 'handleEnter',
     'keypress .urgent': 'handleEnter',
-    'click .urgent': 'handleToday'
+    'click .urgent': 'handleToday',
+    'click .showCompleted': 'handleShowCompleted'
   },
   send: function(){
     var description = $('.item').val();
@@ -161,6 +162,11 @@ var FormView = Backbone.View.extend({
     var urgent = this.$('.urgent').is(':checked');
     $('.dueDate').toggle();
   },
+  // handleShowCompleted: function(){
+  //   var showCompleted = $('.showCompleted');
+  //   console.log('you clicked the completed btn!')
+  //   this.collection.remove(showCompleted);
+  // },
   render: function(){
     var formTemplate = $('#formTemplate').html();
     this.$el.html(formTemplate);
