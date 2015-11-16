@@ -103,6 +103,11 @@ section.list {
       font-size: 1.6em;
       text-transform: capitalize;
       float: left; }
+    section.list article.toDo .editBox {
+      font-size: 1.6em;
+      text-transform: capitalize;
+      float: left;
+      display: none; }
     section.list article.toDo .circle {
       float: left;
       font-size: 2.5em;
@@ -121,10 +126,12 @@ section.list {
     section.list article.toDo .deadline {
       font-size: .9em;
       color: #A9A9A9;
-      position: relative; }
+      position: relative;
+      padding-top: 5px; }
       section.list article.toDo .deadline i {
         color: black;
-        padding-right: 5px; }
+        padding-right: 5px;
+        padding-top: 5px; }
     section.list article.toDo .urgent {
       color: #CF6870;
       float: right;

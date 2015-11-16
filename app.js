@@ -43,6 +43,8 @@ var ToDoItem = Backbone.View.extend({
     'click .urgentOff': 'markUrgent',
     'click .urgentOn': 'markUrgent',
     'click .xBtn': 'removeItem',
+    'click .description': 'editItem',
+    'keypress .editBox': 'saveItem'
   },
   markCompleted: function(){
     var circle = this.$('.circle');
@@ -67,6 +69,26 @@ var ToDoItem = Backbone.View.extend({
     console.log('you clicked the remove x!');
     item.closest('.toDo').toggle('slide');
     this.model.destroy();
+  },
+  editItem: function(){
+    var description = this.$('.description');
+    var editBox = this.$('.editBox');
+    // var text = this.$('.description').html();
+    console.log('you clicked the edit btn!');
+    description.toggle();
+    editBox.toggle();
+    editBox.val(description.html());
+  },
+  saveItem: function(event){
+    if(event.keyCode === 13){
+      var description = this.$('.description');
+      var editBox = this.$('.editBox');
+      event.preventDefault();
+      console.log('you pressed enter to save!');
+      description.html(editBox.val());
+      this.model.save();
+      console.log(description.html());
+    }
   },
   render: function(){
     var data = this.model.toJSON();
@@ -137,8 +159,7 @@ var FormView = Backbone.View.extend({
   },
   handleToday: function(){
     var urgent = this.$('.urgent').is(':checked');
-    var today = this.
-      $('.dueDate').toggle();
+    $('.dueDate').toggle();
   },
   render: function(){
     var formTemplate = $('#formTemplate').html();
