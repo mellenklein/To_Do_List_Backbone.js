@@ -1,7 +1,5 @@
 ## Build a To Do List App With Backbone.js
 
-ckbone-todolist
-
 ## Description
 
 Create an app that lets you manage a list of Tasks. Each Task can (but not required to) have:
